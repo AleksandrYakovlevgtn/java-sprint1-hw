@@ -6,6 +6,7 @@ public class Main {
         int targetStep = 10_000;
         String[] months = {"Январь","Февраль","Март","Апрель","Май", "Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"};
         System.out.println("Здравствуйте это приложение \"Счетчик шагов!\"");
+        StepTracker stepTracker = new StepTracker();
 
 
         while (true){
@@ -14,6 +15,7 @@ public class Main {
             int userInput = scanner.nextInt();
 
             if (userInput == 1){
+                int step = 0;
                 System.out.println("За какой месяц внести количество шагов?");
                 System.out.println(" Январь - 1 ... Декабрь - 12 ");
                 int monthINT = scanner.nextInt();
@@ -22,7 +24,7 @@ public class Main {
                 int day = scanner.nextInt();
                 while (true){
                     System.out.println("Введите колличество шагов !");
-                    int step = scanner.nextInt();
+                    step = scanner.nextInt();
                     if(step < 0){
                     System.out.println("Неможет быть! Постарайтесь еще.");
                     }else {
@@ -30,7 +32,8 @@ public class Main {
                         break;
                     }
                 }
-                // Надо отправить в класс StepTracker в в метод добавления шагов
+                stepTracker.addStep(monthINT,day,step);// Надо отправить в класс StepTracker в в метод добавления шагов
+                System.out.println(stepTracker.monthToData[1].days[1]);
             }else if (userInput == 2){
                 System.out.println("За какой месяц хотели бы получить статистику?");
                 System.out.println(" Январь - 1 ... Декабрь - 12 ");
