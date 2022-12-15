@@ -46,6 +46,15 @@ public class StepTracker {
         }
         System.out.println("Максимальное количество шагов за " + months[monthINT - 1] +": " + maxStep);
     }
+    void  sredeeStepInMonth(int monthINT){
+        int sredeeStepInMonth = 0;
+        int sum = 0;
+        for (int i = 0; i < 30; i++){
+            sum += monthToData[monthINT].days[i];
+        }
+        sredeeStepInMonth = sum/30;
+        System.out.println("Среднее количество шагов за " + months[monthINT - 1] + " " + sredeeStepInMonth);
+    }
 }
 
 
