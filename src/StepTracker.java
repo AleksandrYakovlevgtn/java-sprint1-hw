@@ -36,7 +36,8 @@ public class StepTracker {
         }
         System.out.println("Общее количество шагов за " + months[monthINT - 1] + " составляет " + sumStepInMonth);
         converter.distanciyInMonthKM(sumStepInMonth);
-        System.out.println("Пройденная дистанция за " + months[monthINT - 1] + " составляет " + converter.distanciy);
+        System.out.println("Пройденная дистанция за " + months[monthINT - 1] + " составляет " + converter.distanciy + " км.");
+        System.out.println("Количество сожжённых килокалорий за " + months[monthINT - 1] + " составляет " + converter.kKal + " .");
     }
     void maxStepInMonth(int monthINT){
         double maxStep = 0;
