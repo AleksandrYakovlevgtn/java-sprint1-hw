@@ -3,6 +3,7 @@ public class StepTracker {
     Scanner scanner = new Scanner(System.in);
     MonthData[] monthToData;
     int targetStep = 10_000;
+    String[] months = {"Январь","Февраль","Март","Апрель","Май", "Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"};
 
 
     public StepTracker() {
@@ -23,8 +24,10 @@ public class StepTracker {
 
     void statistikaStepByDays(int monthINT) {
         for (int i = 0; i < 30; i++) {
-            System.out.println((i + 1) + " день: " + monthToData[monthINT].days[i]);
+            System.out.print((i + 1) + " день: " + monthToData[monthINT].days[i] + " ");
+           // System.out.println();
         }
+        System.out.println();
     }
 
     void sumStepInMonth(int monthINT) {
@@ -32,7 +35,7 @@ public class StepTracker {
         for (int i = 0; i < 30; i++) {
             sumStepInMonth = sumStepInMonth + monthToData[monthINT].days[i];
         }
-        System.out.println("Общее количество шагов за " + monthINT + " составляет ");
+        System.out.println("Общее количество шагов за " + months[monthINT - 1] + " составляет " + sumStepInMonth);
     }
 }
 

@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
-        String[] months = {"Январь","Февраль","Март","Апрель","Май", "Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"};
         System.out.println("Здравствуйте это приложение \"Счетчик шагов!\"");
         StepTracker stepTracker = new StepTracker();
 
@@ -18,8 +17,7 @@ public class Main {
                 System.out.println("За какой месяц внести количество шагов?");
                 System.out.println(" Январь - 1 ... Декабрь - 12 ");
                 int monthINT = scanner.nextInt();
-                String month = months[monthINT - 1];
-                System.out.println("за какой день \"" + month + "\" внести шаги ?");
+                System.out.println("за какой день \"" + stepTracker.months[monthINT - 1] + "\" внести шаги ?");
                 int day = scanner.nextInt();
                 while (true){
                     System.out.println("Введите колличество шагов !");
@@ -36,7 +34,6 @@ public class Main {
                 System.out.println("За какой месяц хотели бы получить статистику?");
                 System.out.println(" Январь - 1 ... Декабрь - 12 ");
                 int monthINT = scanner.nextInt();
-                String month = months[monthINT - 1];
                 stepTracker.statistikaStepByDays(monthINT);
                 stepTracker.sumStepInMonth(monthINT);
 
