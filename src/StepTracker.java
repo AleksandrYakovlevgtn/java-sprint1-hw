@@ -1,6 +1,6 @@
-import java.util.Scanner;
+
 public class StepTracker {
-    Scanner scanner = new Scanner(System.in);
+    Converter converter = new Converter();
     MonthData[] monthToData;
     int targetStep = 10_000;
     String[] months = {"Январь","Февраль","Март","Апрель","Май", "Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"};
@@ -25,7 +25,6 @@ public class StepTracker {
     void statistikaStepByDays(int monthINT) {
         for (int i = 0; i < 30; i++) {
             System.out.print((i + 1) + " день: " + monthToData[monthINT].days[i] + " ");
-           // System.out.println();
         }
         System.out.println();
     }
@@ -36,16 +35,18 @@ public class StepTracker {
             sumStepInMonth = sumStepInMonth + monthToData[monthINT].days[i];
         }
         System.out.println("Общее количество шагов за " + months[monthINT - 1] + " составляет " + sumStepInMonth);
+        converter.distanciyInMonthKM(sumStepInMonth);
+        System.out.println("Пройденная дистанция за " + months[monthINT - 1] + " составляет " + converter.distanciy);
     }
     void maxStepInMonth(int monthINT){
-        int maxStep = 0;
+        double maxStep = 0;
         for (int i = 0; i < 30; i++ ){
           if (monthToData[monthINT].days[i] > maxStep) {
               maxStep = monthToData[monthINT].days[i];
           }
         }
         System.out.println("Максимальное количество шагов за " + months[monthINT - 1] +": " + maxStep);
-    }
+        }
     void  sredeeStepInMonth(int monthINT){
         int sredeeStepInMonth = 0;
         int sum = 0;
@@ -56,11 +57,3 @@ public class StepTracker {
         System.out.println("Среднее количество шагов за " + months[monthINT - 1] + " " + sredeeStepInMonth);
     }
 }
-
-
-
-
-
-
-      //    System.out.println("Введите количество шагов: ");
-      //    monthToData[month].dayData[day]=scanner.nextInt();

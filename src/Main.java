@@ -35,9 +35,10 @@ public class Main {
                 System.out.println(" Январь - 1 ... Декабрь - 12 ");
                 int monthINT = scanner.nextInt();
                 stepTracker.statistikaStepByDays(monthINT);
-                stepTracker.sumStepInMonth(monthINT);
                 stepTracker.maxStepInMonth(monthINT);
                 stepTracker.sredeeStepInMonth(monthINT);
+                stepTracker.sumStepInMonth(monthINT);
+
 
                 // Надо отправить в класс StepTracker в ~~ 7 методов
             }else if(userInput == 3){
