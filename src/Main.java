@@ -36,6 +36,7 @@ public class Main {
                 int monthINT = scanner.nextInt();
                 stepTracker.statistikaStepByDays(monthINT);
                 stepTracker.sumStepInMonth(monthINT);
+                stepTracker.maxStepInMonth(monthINT);
 
                 // Надо отправить в класс StepTracker в ~~ 7 методов
             }else if(userInput == 3){
