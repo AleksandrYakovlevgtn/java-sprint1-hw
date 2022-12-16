@@ -1,4 +1,3 @@
-
 public class StepTracker {
     Converter converter = new Converter();
     MonthData[] monthToData;
@@ -37,9 +36,9 @@ public class StepTracker {
         System.out.println("Общее количество шагов за " + months[monthINT - 1] + " составляет " + sumStepInMonth);
         converter.distanceInMonthKM(sumStepInMonth);
         System.out.println("Пройденная дистанция за " + months[monthINT - 1] + " составляет " + converter.distance + " км.");
+        converter.energySpent(sumStepInMonth);
         System.out.println("Количество сожжённых килокалорий за " + months[monthINT - 1] + " составляет " + converter.kKal + " .");
     }
-
     void maxStepInMonth(int monthINT) {
         double maxStep = 0;
         for (int i = 0; i < monthToData.length; i++) {
@@ -74,6 +73,7 @@ public class StepTracker {
         }
         System.out.println("Лучшая серия дней " + longestSeriesDays);
     }
+
     void changeTargetStep(int newTargetStep) {
         while (true) {
             if (newTargetStep < 0) {
