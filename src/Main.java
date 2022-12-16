@@ -41,15 +41,24 @@ public class Main {
 
 
                 // Надо отправить в класс StepTracker в ~~ 7 методов
-            }else if(userInput == 3){
-                //**********************
-            }else if(userInput == 0){
-                System.out.println("Выход");
-                break;
-            }else {
-                System.out.println("Извините, такой команды пока нет.");
+            }else if(userInput == 3) {
+                while (true) {
+                    System.out.println("Введите новую цель по количеству шагов в день.");
+                    int newTargetStep = scanner.nextInt();
+                    if (newTargetStep < 0) {
+                        System.out.println("Целевое количество шагов не может быть отрицательным, пожалуйста исправтесь !");
+                    } else {
+                        stepTracker.targetStep = newTargetStep;
+                        break;
+                    }
+                }
+                }else if (userInput == 0) {
+                    System.out.println("Выход");
+                    break;
+                } else {
+                    System.out.println("Извините, такой команды пока нет.");
+                }
             }
-        }
     }
     public static void printMenu() {
         System.out.println("Что вы хотите сделать? ");

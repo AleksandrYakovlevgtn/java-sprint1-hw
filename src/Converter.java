@@ -1,5 +1,5 @@
 public class Converter {
-   double km = 0.075;
+   double km = 0.0075;
    double distanciy;
    double kKal;
    void distanciyInMonthKM (double sumStepInMonth){
