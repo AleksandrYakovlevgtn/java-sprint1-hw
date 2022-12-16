@@ -1,9 +1,9 @@
 public class Converter {
    double km = 0.0075;
-   double distanciy;
+   double distance;
    double kKal;
-   void distanciyInMonthKM (double sumStepInMonth){
-      distanciy = sumStepInMonth * km;
+   void distanceInMonthKM (double sumStepInMonth){
+      distance = sumStepInMonth * km;
       kKal = (sumStepInMonth * 50)/1_000;
    }
 }

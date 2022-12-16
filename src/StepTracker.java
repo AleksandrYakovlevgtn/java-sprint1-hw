@@ -22,8 +22,8 @@ public class StepTracker {
 
     }
 
-    void statistikaStepByDays(int monthINT) {
-        for (int i = 0; i < 30; i++) {
+    void statistiсStepByDays(int monthINT) {
+        for (int i = 0; i < monthToData.length; i++) {
             System.out.print((i + 1) + " день: " + monthToData[monthINT].days[i] + ", ");
         }
         System.out.println();
@@ -31,18 +31,18 @@ public class StepTracker {
 
     void sumStepInMonth(int monthINT) {
         int sumStepInMonth = 0;
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < monthToData.length; i++) {
             sumStepInMonth = sumStepInMonth + monthToData[monthINT].days[i];
         }
         System.out.println("Общее количество шагов за " + months[monthINT - 1] + " составляет " + sumStepInMonth);
-        converter.distanciyInMonthKM(sumStepInMonth);
-        System.out.println("Пройденная дистанция за " + months[monthINT - 1] + " составляет " + converter.distanciy + " км.");
+        converter.distanceInMonthKM(sumStepInMonth);
+        System.out.println("Пройденная дистанция за " + months[monthINT - 1] + " составляет " + converter.distance + " км.");
         System.out.println("Количество сожжённых килокалорий за " + months[monthINT - 1] + " составляет " + converter.kKal + " .");
     }
 
     void maxStepInMonth(int monthINT) {
         double maxStep = 0;
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < monthToData.length; i++) {
             if (monthToData[monthINT].days[i] > maxStep) {
                 maxStep = monthToData[monthINT].days[i];
             }
@@ -50,29 +50,29 @@ public class StepTracker {
         System.out.println("Максимальное количество шагов за " + months[monthINT - 1] + ": " + maxStep);
     }
 
-    void sredeeStepInMonth(int monthINT) {
-        int sredeeStepInMonth = 0;
+    void averageStepInMonth(int monthINT) {
+        int averageStepInMonth = 0;
         int sum = 0;
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < monthToData.length; i++) {
             sum += monthToData[monthINT].days[i];
         }
-        sredeeStepInMonth = sum / 30;
-        System.out.println("Среднее количество шагов за " + months[monthINT - 1] + " " + sredeeStepInMonth);
+        averageStepInMonth = sum / monthToData.length;
+        System.out.println("Среднее количество шагов за " + months[monthINT - 1] + " " + averageStepInMonth);
     }
 
-    void seriyStep(int monthINT) {
-        int longestSeriy = 0;
-        int longestSeriyDays = 0;
-        for (int i = 0; i < 30; i++) {
+    void seriesStep(int monthINT) {
+        int longestSeries = 0;
+        int longestSeriesDays = 0;
+        for (int i = 0; i < monthToData.length; i++) {
             if (monthToData[monthINT].days[i] >= targetStep) {
-                longestSeriy++;
+                longestSeries++;
 
-            } else if (longestSeriy > longestSeriyDays) {
-                longestSeriyDays = longestSeriy;
-                longestSeriy = 0;
+            } else if (longestSeries > longestSeriesDays) {
+                longestSeriesDays = longestSeries;
+                longestSeries = 0;
             }
         }
-        System.out.println("Лучшая серия дней " + longestSeriyDays);
+        System.out.println("Лучшая серия дней " + longestSeriesDays);
     }
     void changeTargetStep(int newTargetStep) {
         while (true) {

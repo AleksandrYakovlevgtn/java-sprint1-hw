@@ -50,11 +50,11 @@ public class Main {
                 System.out.println("За какой месяц хотели бы получить статистику?");
                 System.out.println(" Январь - 1 ... Декабрь - 12 ");
                 int monthINT = scanner.nextInt();
-                stepTracker.statistikaStepByDays(monthINT);
+                stepTracker.statistiсStepByDays(monthINT);
                 stepTracker.maxStepInMonth(monthINT);
-                stepTracker.sredeeStepInMonth(monthINT);
+                stepTracker.averageStepInMonth(monthINT);
                 stepTracker.sumStepInMonth(monthINT);
-                stepTracker.seriyStep(monthINT);
+                stepTracker.seriesStep(monthINT);
                 }else if(userInput == 3) {
                 System.out.println("Введите новую цель по количеству шагов в день.");
                 int newTargetStep = scanner.nextInt();
