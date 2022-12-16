@@ -14,11 +14,27 @@ public class Main {
 
             if (userInput == 1){
                 int step = 0;
-                System.out.println("За какой месяц внести количество шагов?");
-                System.out.println(" Январь - 1 ... Декабрь - 12 ");
-                int monthINT = scanner.nextInt();
-                System.out.println("за какой день \"" + stepTracker.months[monthINT - 1] + "\" внести шаги ?");
-                int day = scanner.nextInt();
+                int monthINT ;
+                int day ;
+                while (true){
+                    System.out.println("За какой месяц внести количество шагов?");
+                    System.out.println(" Январь - 1 ... Декабрь - 12 ");
+                    monthINT = scanner.nextInt();
+                    if (monthINT <= 0 || monthINT >= 13){
+                        System.out.println("В году 12 месецев!");
+                    }else{
+                        break;
+                    }
+                }
+                while (true){
+                    System.out.println("за какой день \"" + stepTracker.months[monthINT - 1] + "\" внести шаги ?");
+                    day = scanner.nextInt();
+                    if (day < 1 || day > 30){
+                        System.out.println("В месяце всего 30 дней!");
+                    }else{
+                        break;
+                    }
+                }
                 while (true){
                     System.out.println("Введите колличество шагов !");
                     step = scanner.nextInt();

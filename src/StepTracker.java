@@ -24,7 +24,7 @@ public class StepTracker {
 
     void statistikaStepByDays(int monthINT) {
         for (int i = 0; i < 30; i++) {
-            System.out.print((i + 1) + " день: " + monthToData[monthINT].days[i] + " ");
+            System.out.print((i + 1) + " день: " + monthToData[monthINT].days[i] + ", ");
         }
         System.out.println();
     }
