@@ -29,7 +29,7 @@ public class Main {
                         break;
                     }
                 }
-                stepTracker.addStep(monthINT,day,step);// Надо отправить в класс StepTracker в в метод добавления шагов
+                stepTracker.addStep(monthINT,day,step);
             }else if (userInput == 2){
                 System.out.println("За какой месяц хотели бы получить статистику?");
                 System.out.println(" Январь - 1 ... Декабрь - 12 ");
@@ -38,27 +38,18 @@ public class Main {
                 stepTracker.maxStepInMonth(monthINT);
                 stepTracker.sredeeStepInMonth(monthINT);
                 stepTracker.sumStepInMonth(monthINT);
-
-
-                // Надо отправить в класс StepTracker в ~~ 7 методов
-            }else if(userInput == 3) {
-                while (true) {
-                    System.out.println("Введите новую цель по количеству шагов в день.");
-                    int newTargetStep = scanner.nextInt();
-                    if (newTargetStep < 0) {
-                        System.out.println("Целевое количество шагов не может быть отрицательным, пожалуйста исправтесь !");
-                    } else {
-                        stepTracker.targetStep = newTargetStep;
-                        break;
-                    }
-                }
-                }else if (userInput == 0) {
-                    System.out.println("Выход");
-                    break;
-                } else {
-                    System.out.println("Извините, такой команды пока нет.");
-                }
+                stepTracker.seriyStep(monthINT);
+                }else if(userInput == 3) {
+                System.out.println("Введите новую цель по количеству шагов в день.");
+                int newTargetStep = scanner.nextInt();
+                stepTracker.changeTargetStep(newTargetStep);
+            }else if (userInput == 0) {
+                System.out.println("Выход");
+                break;
+            } else {
+                System.out.println("Извините, такой команды пока нет.");
             }
+        }
     }
     public static void printMenu() {
         System.out.println("Что вы хотите сделать? ");

@@ -3,7 +3,7 @@ public class StepTracker {
     Converter converter = new Converter();
     MonthData[] monthToData;
     int targetStep = 10_000;
-    String[] months = {"Январь","Февраль","Март","Апрель","Май", "Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"};
+    String[] months = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
 
 
     public StepTracker() {
@@ -39,22 +39,49 @@ public class StepTracker {
         System.out.println("Пройденная дистанция за " + months[monthINT - 1] + " составляет " + converter.distanciy + " км.");
         System.out.println("Количество сожжённых килокалорий за " + months[monthINT - 1] + " составляет " + converter.kKal + " .");
     }
-    void maxStepInMonth(int monthINT){
+
+    void maxStepInMonth(int monthINT) {
         double maxStep = 0;
-        for (int i = 0; i < 30; i++ ){
-          if (monthToData[monthINT].days[i] > maxStep) {
-              maxStep = monthToData[monthINT].days[i];
-          }
+        for (int i = 0; i < 30; i++) {
+            if (monthToData[monthINT].days[i] > maxStep) {
+                maxStep = monthToData[monthINT].days[i];
+            }
         }
-        System.out.println("Максимальное количество шагов за " + months[monthINT - 1] +": " + maxStep);
-        }
-    void  sredeeStepInMonth(int monthINT){
+        System.out.println("Максимальное количество шагов за " + months[monthINT - 1] + ": " + maxStep);
+    }
+
+    void sredeeStepInMonth(int monthINT) {
         int sredeeStepInMonth = 0;
         int sum = 0;
-        for (int i = 0; i < 30; i++){
+        for (int i = 0; i < 30; i++) {
             sum += monthToData[monthINT].days[i];
         }
-        sredeeStepInMonth = sum/30;
+        sredeeStepInMonth = sum / 30;
         System.out.println("Среднее количество шагов за " + months[monthINT - 1] + " " + sredeeStepInMonth);
+    }
+
+    void seriyStep(int monthINT) {
+        int longestSeriy = 0;
+        int longestSeriyDays = 0;
+        for (int i = 0; i < 30; i++) {
+            if (monthToData[monthINT].days[i] >= targetStep) {
+                longestSeriy++;
+
+            } else if (longestSeriy > longestSeriyDays) {
+                longestSeriyDays = longestSeriy;
+                longestSeriy = 0;
+            }
+        }
+        System.out.println("Лучшая серия дней " + longestSeriyDays);
+    }
+    void changeTargetStep(int newTargetStep) {
+        while (true) {
+            if (newTargetStep < 0) {
+                System.out.println("Целевое количество шагов не может быть отрицательным, пожалуйста исправтесь !");
+            } else {
+                targetStep = newTargetStep;
+                break;
+            }
+        }
     }
 }
