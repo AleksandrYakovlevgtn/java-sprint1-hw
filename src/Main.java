@@ -20,7 +20,7 @@ public class Main {
                     System.out.println("За какой месяц внести количество шагов?");
                     System.out.println(" Январь - 1 ... Декабрь - 12 ");
                     monthINT = scanner.nextInt();
-                    if (monthINT <= 0 || monthINT >= 13) {
+                    if (monthINT <= 0 || monthINT > 12) {
                         System.out.println("В году 12 месецев!");
                     } else {
                         break;
@@ -50,15 +50,23 @@ public class Main {
                 System.out.println("За какой месяц хотели бы получить статистику?");
                 System.out.println(" Январь - 1 ... Декабрь - 12 ");
                 int monthINT = scanner.nextInt();
-                stepTracker.statistiсStepByDays(monthINT);
-                stepTracker.maxStepInMonth(monthINT);
-                stepTracker.averageStepInMonth(monthINT);
-                stepTracker.sumStepInMonth(monthINT);
-                stepTracker.seriesStep(monthINT);
+                stepTracker.statistiсStepByDays(monthINT - 1);
+                stepTracker.maxStepInMonth(monthINT - 1);
+                stepTracker.averageStepInMonth(monthINT - 1);
+                stepTracker.sumStepInMonth(monthINT - 1);
+                stepTracker.seriesStep(monthINT - 1);
             } else if (userInput == 3) {
-                System.out.println("Введите новую цель по количеству шагов в день.");
-                int newTargetStep = scanner.nextInt();
-                stepTracker.changeTargetStep(newTargetStep);
+                while (true) {
+                    int newTargetStep;
+                    System.out.println("Введите новую цель по количеству шагов в день.");
+                    newTargetStep = scanner.nextInt();
+                    if (newTargetStep < 1) {
+                        System.out.println("Целевое количество шагов не может быть отрицательным, пожалуйста исправтесь !");
+                    }else{
+                        stepTracker.changeTargetStep(newTargetStep);
+                        break;
+                    }
+                }
             } else if (userInput == 0) {
                 System.out.println("Выход");
                 break;
